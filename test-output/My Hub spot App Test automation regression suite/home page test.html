@@ -1,56 +1,82 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-<title>TestNG Report</title>
-<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+<title>TestNG:  home page test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
 </head>
 <body>
-<table>
-<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="7">My Hub spot App Test automation regression suite</th></tr>
-<tr><td><a href="#t0">login page test</a></td><td class="num">2</td><td class="num">0</td><td class="num attn">1</td><td class="num">14,887</td><td></td><td></td></tr>
-<tr class="stripe"><td><a href="#t1">home page test</a></td><td class="num">0</td><td class="num attn">2</td><td class="num">0</td><td class="num">2,844</td><td></td><td></td></tr>
-<tr><td><a href="#t2">contacts page test</a></td><td class="num">0</td><td class="num attn">2</td><td class="num">0</td><td class="num">2,593</td><td></td><td></td></tr>
-<tr><th>Total</th><th class="num">2</th><th class="num attn">4</th><th class="num attn">1</th><th class="num">20,324</th><th colspan="2"></th></tr>
-</table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">My Hub spot App Test automation regression suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">login page test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.qa.hubspot.tests.LoginPageTest</td><td><a href="#m0">verifySignUpLinkTest</a></td><td rowspan="1">1590604192138</td><td rowspan="1">95</td></tr><tr><th colspan="4">login page test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">com.qa.hubspot.tests.LoginPageTest</td><td><a href="#m1">loginTest</a></td><td rowspan="1">1590604200411</td><td rowspan="1">1250</td></tr><tr class="passedeven"><td><a href="#m2">verifyLoginPageTitleTest</a></td><td rowspan="1">1590604192240</td><td rowspan="1">8167</td></tr></tbody>
-<tbody id="t1"><tr><th colspan="4">home page test &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">com.qa.hubspot.tests.HomePageTest</td><td><a href="#m3">homeSetup</a></td><td rowspan="1">1590604205046</td><td rowspan="1">26</td></tr><tr><th colspan="4">home page test &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="1">com.qa.hubspot.tests.HomePageTest</td><td><a href="#m4">tearDown</a></td><td rowspan="1">1590604205085</td><td rowspan="1">0</td></tr><tr><th colspan="4">home page test &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="2">com.qa.hubspot.tests.HomePageTest</td><td><a href="#m5">verifyHomePageHeader</a></td><td rowspan="1">1590604205079</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m6">verifyHomePageTitle</a></td><td rowspan="1">1590604205082</td><td rowspan="1">0</td></tr></tbody>
-<tbody id="t2"><tr><th colspan="4">contacts page test &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">com.qa.hubspot.tests.ContactsPageTest</td><td><a href="#m7">contactsSetup</a></td><td rowspan="1">1590604207655</td><td rowspan="1">26</td></tr><tr><th colspan="4">contacts page test &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="1">com.qa.hubspot.tests.ContactsPageTest</td><td><a href="#m8">tearDown</a></td><td rowspan="1">1590604207692</td><td rowspan="1">0</td></tr><tr><th colspan="4">contacts page test &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="2">com.qa.hubspot.tests.ContactsPageTest</td><td><a href="#m9">createContactTest</a></td><td rowspan="1">1590604207688</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m10">verifyContactsPageTitleTest</a></td><td rowspan="1">1590604207685</td><td rowspan="1">0</td></tr></tbody>
-</table>
-<h2>login page test</h2><h3 id="m0">com.qa.hubspot.tests.LoginPageTest#verifySignUpLinkTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
-	at com.qa.hubspot.utils.ElementUtil.doIsDisplayed(ElementUtil.java:54)
-	at com.qa.hubspot.pages.LoginPage.verifySignUpLink(LoginPage.java:40)
-	at com.qa.hubspot.tests.LoginPageTest.verifySignUpLinkTest(LoginPageTest.java:22)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.qa.hubspot.tests.LoginPageTest#loginTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">com.qa.hubspot.tests.LoginPageTest#verifyLoginPageTitleTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h2>home page test</h2><h3 id="m3">com.qa.hubspot.tests.HomePageTest#homeSetup</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
+<h2 align='center'>home page test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>0/0/2</td>
+</tr><tr>
+<td>Started on:</td><td>Thu May 28 00:00:02 IST 2020</td>
+</tr>
+<tr><td>Total time:</td><td>2 seconds (2844 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.qa.hubspot.tests.HomePageTest.homeSetup()'><b>homeSetup</b><br>Test class: com.qa.hubspot.tests.HomePageTest</td>
+<td><div><pre>java.lang.NullPointerException
 	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
 	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
@@ -85,9 +111,8 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">com.qa.hubspot.tests.HomePageTest#tearDown</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">com.qa.hubspot.tests.HomePageTest#verifyHomePageHeader</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
+</pre></div><a href='#' onClick='toggleBox("stack-trace1460126155", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1460126155'><pre>java.lang.NullPointerException
 	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
 	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
@@ -122,8 +147,33 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m6">com.qa.hubspot.tests.HomePageTest#verifyHomePageTitle</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
+</pre></div></td>
+<td>0</td>
+<td>com.qa.hubspot.tests.HomePageTest@48524010</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.qa.hubspot.tests.HomePageTest.tearDown()'><b>tearDown</b><br>Test class: com.qa.hubspot.tests.HomePageTest</td>
+<td></td>
+<td>0</td>
+<td>com.qa.hubspot.tests.HomePageTest@48524010</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.qa.hubspot.tests.HomePageTest.verifyHomePageHeader()'><b>verifyHomePageHeader</b><br>Test class: com.qa.hubspot.tests.HomePageTest</td>
+<td><div><pre>java.lang.NullPointerException
 	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
 	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
@@ -158,8 +208,8 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h2>contacts page test</h2><h3 id="m7">com.qa.hubspot.tests.ContactsPageTest#contactsSetup</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
+</pre></div><a href='#' onClick='toggleBox("stack-trace1731137986", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1731137986'><pre>java.lang.NullPointerException
 	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
 	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
@@ -167,7 +217,7 @@
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
 	at com.qa.hubspot.utils.ElementUtil.waitForElementToBeVisible(ElementUtil.java:185)
 	at com.qa.hubspot.pages.LoginPage.doLogin(LoginPage.java:45)
-	at com.qa.hubspot.tests.ContactsPageTest.contactsSetup(ContactsPageTest.java:18)
+	at com.qa.hubspot.tests.HomePageTest.homeSetup(HomePageTest.java:17)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -194,9 +244,12 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m8">com.qa.hubspot.tests.ContactsPageTest#tearDown</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m9">com.qa.hubspot.tests.ContactsPageTest#createContactTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
+</pre></div></td>
+<td>0</td>
+<td>com.qa.hubspot.tests.HomePageTest@48524010</td></tr>
+<tr>
+<td title='com.qa.hubspot.tests.HomePageTest.verifyHomePageTitle()'><b>verifyHomePageTitle</b><br>Test class: com.qa.hubspot.tests.HomePageTest</td>
+<td><div><pre>java.lang.NullPointerException
 	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
 	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
@@ -204,7 +257,7 @@
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
 	at com.qa.hubspot.utils.ElementUtil.waitForElementToBeVisible(ElementUtil.java:185)
 	at com.qa.hubspot.pages.LoginPage.doLogin(LoginPage.java:45)
-	at com.qa.hubspot.tests.ContactsPageTest.contactsSetup(ContactsPageTest.java:18)
+	at com.qa.hubspot.tests.HomePageTest.homeSetup(HomePageTest.java:17)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -231,8 +284,8 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m10">com.qa.hubspot.tests.ContactsPageTest#verifyContactsPageTitleTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
+</pre></div><a href='#' onClick='toggleBox("stack-trace695248316", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace695248316'><pre>java.lang.NullPointerException
 	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
 	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
@@ -240,7 +293,7 @@
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
 	at com.qa.hubspot.utils.ElementUtil.waitForElementToBeVisible(ElementUtil.java:185)
 	at com.qa.hubspot.pages.LoginPage.doLogin(LoginPage.java:45)
-	at com.qa.hubspot.tests.ContactsPageTest.contactsSetup(ContactsPageTest.java:18)
+	at com.qa.hubspot.tests.HomePageTest.homeSetup(HomePageTest.java:17)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -267,6 +320,9 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+</pre></div></td>
+<td>0</td>
+<td>com.qa.hubspot.tests.HomePageTest@48524010</td></tr>
+</table><p>
 </body>
 </html>

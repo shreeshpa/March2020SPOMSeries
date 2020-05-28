@@ -11,6 +11,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import com.qa.hubspot.utils.ElementUtil;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
@@ -23,6 +25,8 @@ public class BasePage {
 
 	WebDriver driver;
 	Properties prop;
+	public ElementUtil elementUtil;
+
 	
 	/**
 	 * this method is used to initialize the WebDriver on the basis of browser
@@ -30,7 +34,9 @@ public class BasePage {
 	 * @return driver
 	 */
 
-	public WebDriver init_driver(String browserName) {
+	public WebDriver init_driver(Properties prop) {
+		
+		String browserName=prop.getProperty("browser");
 
 		if (browserName.equalsIgnoreCase("chrome")) {
 
@@ -54,9 +60,9 @@ public class BasePage {
 		
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
-		driver.get("https://app.hubspot.com/login");
+		driver.get(prop.getProperty("url"));
 		
 		return driver;
 
@@ -70,7 +76,7 @@ public class BasePage {
 		   prop=new Properties();
 		   
 		   try {
-			FileInputStream ip=new FileInputStream("/src/main/java/com/qa/hubspot/config/config.properties");
+			FileInputStream ip=new FileInputStream("./src/main/java/com/qa/hubspot/config/config.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
