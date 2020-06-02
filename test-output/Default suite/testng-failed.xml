@@ -6,10 +6,9 @@
       <class name="com.qa.hubspot.tests.ContactsPageTest">
         <methods>
           <include name="createContactTest"/>
-          <include name="contactSetup"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="verifyContactsPageTitleTest"/>
+          <include name="contactsSetup"/>
         </methods>
       </class> <!-- com.qa.hubspot.tests.ContactsPageTest -->
     </classes>

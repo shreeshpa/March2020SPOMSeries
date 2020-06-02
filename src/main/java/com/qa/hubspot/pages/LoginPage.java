@@ -35,24 +35,23 @@ public class LoginPage extends BasePage{
 		 return elementUtil.waitForTitleToBePresent(Constants.LOGIN_PAGE_TITLE, 10);
 	   }
 	
-       public boolean verifySignUpLink() {
-    	   
-    	   return elementUtil.doIsDisplayed(signUpLink);
-       }
+	   public boolean verifySignUpLink() {
+			elementUtil.waitForElementPresent(signUpLink, 5);
+			return elementUtil.doIsDisplayed(signUpLink);
+		}
        
-       public HomePage doLogin(String username, String password) {
-    	   
-    	   elementUtil.waitForElementToBeVisible(this.username, 10);
-    	   elementUtil.doSendKeys(this.username, username);
-    	   elementUtil.doSendKeys(this.password, password);
-    	   elementUtil.doClick(this.loginButton);
-    	   
-    	   return new HomePage(driver);
-    	   
-    	   
+	   public HomePage doLogin(String username, String password) {
+			elementUtil.waitForElementPresent(this.username, 10);
+			elementUtil.doSendKeys(this.username, username);
+			elementUtil.doSendKeys(this.password, password);
+			elementUtil.doClick(this.loginButton);
+
+			return new HomePage(driver);
+		}
     	   
     	   
     	   
     	   
-}
+    	   
+    	   
 }

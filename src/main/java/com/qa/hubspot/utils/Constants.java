@@ -8,4 +8,7 @@ public class Constants {
 	public static final String CONTACTS_PAGE_TITLE = "Contacts";
 	public static final String CONTACTS_PAGE_HEADER ="Contacts";
 	
+	//******************************Sheet Name**************************
+		public static final String CONTACT_SHEET_NAME  = "contacts";
+	
 }

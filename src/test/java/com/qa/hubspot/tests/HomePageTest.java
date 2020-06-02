@@ -26,6 +26,12 @@ public class HomePageTest extends BaseTest {
 
 	@Test(priority = 1)
 	public void verifyHomePageHeader() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String header=homePage.getHomePageHeaderText();
 		System.out.println("Home page is : "+header);
 		Assert.assertEquals(header, Constants.HOME_PAGE_HEADER, "home page header is not present..");

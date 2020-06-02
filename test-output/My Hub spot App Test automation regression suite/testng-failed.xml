@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [My Hub spot App Test automation regression suite]" guice-stage="DEVELOPMENT" verbose="3">
-  <test thread-count="5" name="login page test(failed)" verbose="3">
-    <classes>
-      <class name="com.qa.hubspot.tests.LoginPageTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="verifySignUpLinkTest"/>
-        </methods>
-      </class> <!-- com.qa.hubspot.tests.LoginPageTest -->
-    </classes>
-  </test> <!-- login page test(failed) -->
-  <test thread-count="5" name="home page test(failed)" verbose="3">
+<suite thread-count="2" parallel="tests" name="Failed suite [My Hub spot App Test automation regression suite]" guice-stage="DEVELOPMENT" verbose="3">
+  <test thread-count="2" parallel="tests" name="home page test(failed)" verbose="3">
     <classes>
       <class name="com.qa.hubspot.tests.HomePageTest">
         <methods>
@@ -25,7 +14,7 @@
       </class> <!-- com.qa.hubspot.tests.HomePageTest -->
     </classes>
   </test> <!-- home page test(failed) -->
-  <test thread-count="5" name="contacts page test(failed)" verbose="3">
+  <test thread-count="2" parallel="tests" name="contacts page test(failed)" verbose="3">
     <classes>
       <class name="com.qa.hubspot.tests.ContactsPageTest">
         <methods>
@@ -38,4 +27,15 @@
       </class> <!-- com.qa.hubspot.tests.ContactsPageTest -->
     </classes>
   </test> <!-- contacts page test(failed) -->
+  <test thread-count="2" parallel="tests" name="login page test(failed)" verbose="3">
+    <classes>
+      <class name="com.qa.hubspot.tests.LoginPageTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="verifySignUpLinkTest"/>
+        </methods>
+      </class> <!-- com.qa.hubspot.tests.LoginPageTest -->
+    </classes>
+  </test> <!-- login page test(failed) -->
 </suite> <!-- Failed suite [My Hub spot App Test automation regression suite] -->
