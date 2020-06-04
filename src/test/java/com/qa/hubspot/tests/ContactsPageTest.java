@@ -15,7 +15,7 @@ public class ContactsPageTest extends BaseTest {
 	HomePage homePage;
 	ContactsPage contactsPage;
 
-	@BeforeClass
+	@BeforeClass	
 	public void contactsSetup() {
 		homePage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 		contactsPage = homePage.goToContactsPage();
