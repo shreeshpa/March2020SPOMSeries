@@ -32,6 +32,7 @@ public class LoginPageTest extends BaseTest {
 	@Description("verify sugn up link test.....")
 	@Severity(SeverityLevel.CRITICAL)
 	public void verifySignUpLinkTest() {
+		
 		Assert.assertTrue(loginPage.verifySignUpLink(), "sing up link is not displayed....");
 	}
 

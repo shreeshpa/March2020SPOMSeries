@@ -167,7 +167,7 @@
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite thread-count=&quot;2&quot; parallel=&quot;tests&quot; name=&quot;My Hub spot App Test automation regression suite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;3&quot;&gt;
   &lt;listeners&gt;
-    &lt;listener class-name=&quot;com.qa.hubspot.listeners.TestAllureListener&quot;/&gt;
+    &lt;listener class-name=&quot;com.qa.hubspot.listeners.ScreenshotListener&quot;/&gt;
   &lt;/listeners&gt;
   &lt;test thread-count=&quot;2&quot; parallel=&quot;tests&quot; name=&quot;login page test&quot; verbose=&quot;3&quot;&gt;
     &lt;classes&gt;
@@ -215,15 +215,15 @@ data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'verifySignUpLinkTest')
 data.setCell(0, 2, 'com.qa.hubspot.tests.LoginPageTest')
-data.setCell(0, 3, 5300);
+data.setCell(0, 3, 5383);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'loginTest')
 data.setCell(1, 2, 'com.qa.hubspot.tests.LoginPageTest')
-data.setCell(1, 3, 1139);
+data.setCell(1, 3, 1147);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'verifyLoginPageTitleTest')
 data.setCell(2, 2, 'com.qa.hubspot.tests.LoginPageTest')
-data.setCell(2, 3, 35);
+data.setCell(2, 3, 76);
 window.suiteTableData['My_Hub_spot_App_Test_automation_regression_suite']= { tableData: data, tableDiv: 'times-div-My_Hub_spot_App_Test_automation_regression_suite'}
 return data;
 }
@@ -261,19 +261,19 @@ return data;
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">verifySignUpLinkTest</span>
-                <span class="method-start">9031 ms</span>
+                <span class="method-start">4804 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">verifyLoginPageTitleTest</span>
-                <span class="method-start">14702 ms</span>
+                <span class="method-start">10529 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">loginTest</span>
-                <span class="method-start">14744 ms</span>
+                <span class="method-start">10611 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">15889 ms</span>
+                <span class="method-start">11765 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
