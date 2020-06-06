@@ -15,6 +15,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import com.qa.hubspot.utils.ElementUtil;
+import com.qa.hubspot.utils.OptionsManager;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -29,6 +30,7 @@ public class BasePage {
 	WebDriver driver;
 	Properties prop;
 	public ElementUtil elementUtil;
+	public OptionsManager optionsanager;
 	public static ThreadLocal<WebDriver> tlDriver=new ThreadLocal<WebDriver>();
 	
 	public static synchronized WebDriver getDriver() {
@@ -44,20 +46,23 @@ public class BasePage {
 
 	public WebDriver init_driver(Properties prop) {
 		
+		optionsanager=new OptionsManager(prop);
+		
 		String browserName=prop.getProperty("browser");
-
+		 
+         
 		if (browserName.equalsIgnoreCase("chrome")) {
 
 			WebDriverManager.chromedriver().setup();
 			//driver = new ChromeDriver();
-			tlDriver.set(new ChromeDriver());
+			tlDriver.set(new ChromeDriver(optionsanager.getChromeOptions()));
 
 		}
 		else if (browserName.equalsIgnoreCase("firfox")) {
 
 			WebDriverManager.firefoxdriver().setup();
 			//driver = new FirefoxDriver();
-			tlDriver.set(new FirefoxDriver());
+			tlDriver.set(new FirefoxDriver(optionsanager.getFirefoxOptions()));
 
 		}
 		
@@ -83,15 +88,39 @@ public class BasePage {
 
 	}
 	  /**
-	   * this method is used to initialize the properties from confif.properties file
+	   * this method is used to initialize the properties from confif.properties file on the basis of given env variable
 	   * @return prop
 	   */
        
 	   public Properties init_prop() {
 		   prop=new Properties();
+		   String path = null;
+		   String env=null;
 		   
 		   try {
-			FileInputStream ip=new FileInputStream("./src/main/java/com/qa/hubspot/config/config.properties");
+			   env=System.getProperty("env");
+			   System.out.println("env value is--->" + env);
+			   if (env==null) {
+				path="./src/main/java/com/qa/hubspot/config/config.properties";
+			}
+			   else {
+				switch (env) {
+				case "qa":
+					path="./src/main/java/com/qa/hubspot/config/qa.config.properties";
+					break;
+				case "dev":
+					path="./src/main/java/com/qa/hubspot/config/dev.config.properties";
+					break;
+				case "stage":
+					path="./src/main/java/com/qa/hubspot/config/stage.config.properties";
+					break;	
+
+				default:
+					System.out.println("Please pass the correct environment value-->" +env);
+					break;
+				}
+			}
+			FileInputStream ip=new FileInputStream(path);
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
