@@ -32,11 +32,7 @@ pipeline {
           }
         }
 
-        stage('safari') {
-          steps {
-            sh 'mvn test -Denv=qa -Dbrowser=firefox'
-          }
-        }
+       
 
       }
     }
@@ -49,11 +45,6 @@ pipeline {
           }
         }
 
-        stage('safari') {
-          steps {
-            sh 'mvn test -Denv=qa -Dbrowser=firefox'
-          }
-        }
 
         stage('chrome') {
           steps {
