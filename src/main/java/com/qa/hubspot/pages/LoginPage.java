@@ -40,7 +40,7 @@ public class LoginPage extends BasePage{
 	   
 	   @Step("check sign up link on login page....")
 	   public boolean verifySignUpLink() {
-			elementUtil.waitForElementPresent(signUpLink, 5);
+			elementUtil.waitForElementPresent(signUpLink, 10);
 			return elementUtil.doIsDisplayed(signUpLink);
 		}
        
