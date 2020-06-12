@@ -12,7 +12,9 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -62,25 +64,21 @@ public class BasePage {
 
 		if (browserName.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			//tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
-			
-			DesiredCapabilities cap = DesiredCapabilities.chrome();
-			cap.setCapability(ChromeOptions.CAPABILITY, optionsManager.getChromeOptions());
-			try {
-				tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap));
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
+			if (Boolean.parseBoolean(prop.getProperty("remote"))) {
+				init_remoteWebDriver(browserName);
+			}
+			else {
+				tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
 			}
 
 		} else if (browserName.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
-			//tlDriver.set(new FirefoxDriver(optionsManager.getFirefoxOptions()));
-			DesiredCapabilities cap = DesiredCapabilities.firefox();
-			cap.setCapability(ChromeOptions.CAPABILITY, optionsManager.getFirefoxOptions());
-			try {
-				tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap));
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
+			if (Boolean.parseBoolean(prop.getProperty("remote"))) {
+				init_remoteWebDriver(browserName);
+			}
+			else {
+				tlDriver.set(new FirefoxDriver(optionsManager.getFirefoxOptions()));
+				
 			}
 		}
 
@@ -104,28 +102,27 @@ public class BasePage {
 		return getDriver();
 	}
 
-//	private void init_remoteWebDriver(String browserName) {
-//
-//		if (browserName.equalsIgnoreCase("chrome")) {
-//			DesiredCapabilities cap = DesiredCapabilities.chrome();
-//			cap.setCapability(ChromeOptions.CAPABILITY, optionsanager.getChromeOptions());
-//			try {
-//				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")), cap));
-//			} catch (MalformedURLException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		
-//		else if (browserName.equalsIgnoreCase("firefox")) {
-//			DesiredCapabilities cap = DesiredCapabilities.firefox();
-//			cap.setCapability(ChromeOptions.CAPABILITY, optionsanager.getFirefoxOptions());
-//			try {
-//				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")), cap));
-//			} catch (MalformedURLException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//	}
+	private void init_remoteWebDriver(String browserName) {
+		if (browserName.equalsIgnoreCase("chrome")) {
+			DesiredCapabilities cap = DesiredCapabilities.chrome();
+			cap.setCapability(ChromeOptions.CAPABILITY, optionsManager.getChromeOptions());
+			try {
+				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")), cap));
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		else if (browserName.equalsIgnoreCase("firefox")) {
+			DesiredCapabilities cap = DesiredCapabilities.firefox();
+			cap.setCapability(ChromeOptions.CAPABILITY, optionsManager.getFirefoxOptions());
+			try {
+				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")), cap));
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 	/**
 	 * this method is used to initialize the properties from confif.properties file
